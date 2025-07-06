@@ -77,7 +77,7 @@
     position: relative;
   }
   #hacked-text {
-    margin-top: 20px; /* هنا فرقته لين تحت المعلومات */
+    margin-bottom: 20px;
     font-size: 2.8em;
     font-weight: 900;
     color: #a16ade;
@@ -122,6 +122,7 @@
 
 <div id="main-content">
   <div class="image-container">
+    <div id="hacked-text">Hacked By 𝗔𝗹𝗺𝟲𝗲𝗿𝗶 & 𝗔𝗹𝗱𝗼𝘀𝗮𝗿𝗶</div>
     <video autoplay loop muted playsinline>
       <source src="https://cdn.discordapp.com/attachments/1390218399111577610/1390386759699005641/Violet_2.mp4?ex=686b5dd3&is=686a0c53&hm=41563ff50784066792af7a756a3e0f1a049e844240d6746b24992b53100ee2f5&" type="video/mp4" />
       Your browser does not support the video tag.
@@ -142,8 +143,6 @@
     <span><strong>Organization:</strong> <span id="org"></span></span><br />
     <span><strong>Timezone:</strong> <span id="timezone"></span></span>
   </div>
-
-  <div id="hacked-text">Hacked By 𝗔𝗹𝗺𝟲𝗲𝗿𝗶 & 𝗔𝗹𝗱𝗼𝘀𝗮𝗿𝗶</div>
 
   <img class="watermark-rights" id="watermark-img"
     src="https://cdn.discordapp.com/attachments/1390218399111577610/1390434579776802877/Untitled_Project__23_-removebg-preview.png?ex=686b8a5c&is=686a38dc&hm=f8c466c60506ef955cbe1e4f60ea90f5b4de612d60dcf1704be7556c82959fc1&"
@@ -202,7 +201,6 @@
       delay += 600;
     });
 
-    // حركة ناعمة للعناصر الرئيسية (فيديو، معلومات، صوت، نص)
     const moveRange = 4;
     function smoothMove() {
       elementsToShow.slice(0, -1).forEach(el => {
@@ -214,13 +212,12 @@
     }
     smoothMove();
 
-    // حركة watermark في الأعلى يمين فقط (يمين ويسار بس)
     const watermark = document.getElementById('watermark-img');
-    const maxMoveX = 60; // يتحرك يمين ويسار بحد أقصى 60px
+    const maxMoveX = 60;
     function moveWatermarkHorizontal() {
       const x = Math.random() * maxMoveX;
       watermark.style.transition = 'transform 1.5s ease';
-      watermark.style.transform = `translateX(${-x}px)`; // فقط أفقي
+      watermark.style.transform = `translateX(${-x}px)`;
       setTimeout(moveWatermarkHorizontal, 2000);
     }
     moveWatermarkHorizontal();
