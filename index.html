@@ -143,7 +143,7 @@
     <span><strong>Timezone:</strong> <span id="timezone"></span></span>
   </div>
 
-  <div id="hacked-text">Hacked By 𝗔𝗹𝗺𝟲𝗲𝗿𝗶 & 𝗔𝗹𝗱𝗼𝘀𝗮𝗿𝗶 </div>
+  <div id="hacked-text">Hacked By 𝗔𝗹𝗺𝟲𝗲𝗿𝗶 & 𝗔𝗹𝗱𝗼𝘀𝗮𝗿𝗶</div>
 
   <img class="watermark-rights" id="watermark-img"
     src="https://cdn.discordapp.com/attachments/1390218399111577610/1390434579776802877/Untitled_Project__23_-removebg-preview.png?ex=686b8a5c&is=686a38dc&hm=f8c466c60506ef955cbe1e4f60ea90f5b4de612d60dcf1704be7556c82959fc1&"
@@ -214,22 +214,16 @@
     }
     smoothMove();
 
-    // حركة watermark ثابتة لكن تتحرك ضمن مربع صغير في الركن العلوي الأيمن
+    // حركة watermark في الأعلى يمين فقط (يمين ويسار بس)
     const watermark = document.getElementById('watermark-img');
-    const maxMove = 50; // px حركة ضمن 50 بكسل فقط
-
-    function moveWatermarkSmallArea() {
-      const x = Math.random() * maxMove;
-      const y = Math.random() * maxMove;
-
-      // لأن position fixed مع top و right
-      // نستخدم translateX سالب للتحرك لليسار، translateY موجب للأسفل
+    const maxMoveX = 60; // يتحرك يمين ويسار بحد أقصى 60px
+    function moveWatermarkHorizontal() {
+      const x = Math.random() * maxMoveX;
       watermark.style.transition = 'transform 1.5s ease';
-      watermark.style.transform = `translate(${-x}px, ${y}px)`;
-
-      setTimeout(moveWatermarkSmallArea, 2000);
+      watermark.style.transform = `translateX(${-x}px)`; // فقط أفقي
+      setTimeout(moveWatermarkHorizontal, 2000);
     }
-    moveWatermarkSmallArea();
+    moveWatermarkHorizontal();
 
   }, 4000);
 </script>
